@@ -6,10 +6,9 @@ import unittest
 from tests.test_transition import TestTransition
 
 def main():
-    suite = unittest.TestSuite()
-    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestTransition))
-    runner = unittest.TextTestRunner(verbosity=2)
-    runner.run(suite)
+    discover = unittest.defaultTestLoader.discover('./tests', pattern='test*.py')
+    runner=unittest.TextTestRunner(verbosity=2)
+    runner.run(discover)
 
 if __name__ == '__main__':
     main()
